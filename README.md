@@ -10,8 +10,8 @@
 **A front door to community tools that extend the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`).**
 
 `dsh` runs a strong local model as an agent. These add-ons give that agent
-abilities the base harness does not ship: live web access, eyes for images, and
-more over time. Each one is its own repo, focused and self-contained. This page
+abilities the base harness does not ship: live web access, eyes for images, an
+in-app browser, and more over time. Each one is its own repo, focused and self-contained. This page
 is just the map.
 
 Everything here shares the same principles: **local-first, keyless where
@@ -26,6 +26,7 @@ so `npm i -g` never reverts your setup).
 |---|---|---|
 | **[Web Tools](https://github.com/tonyd2wild/DeepSeek-Harness-Web-Tools)** | Free, keyless `web_search` + `web_fetch`, so the agent can look things up and read pages | ✅ Live |
 | **[Vision Tools](https://github.com/tonyd2wild/DeepSeek-Harness-Vision-Tools)** | Eyes for a text-only brain: a proxy that captions chat image attachments, plus an `analyze_image` tool for image files on disk | ✅ Live |
+| **[Browser](https://github.com/tonyd2wild/DeepSeek-Harness-Browser)** | An in-app browser pane beside the chat: a real Chrome driven over CDP (or a true embedded browser with the optional desktop shell), plus rendered previews of local markdown, HTML + PDFs. Tools: `open_preview` / `read_preview` / `close_preview` | ✅ Live |
 | _your tool here_ | Built something for `dsh`? See [Contributing](#contributing) | 🙌 |
 
 ---
@@ -38,6 +39,9 @@ They stack. Nothing here is exclusive, and you can run all of them on the same
 - **Web Tools** registers `web_search` / `web_fetch` as model-facing tools.
 - **Vision Tools** adds an `analyze_image` tool for files on disk, and a small
   proxy in front of your model for images dropped into the chat.
+- **Browser** opens an in-app browser pane (a real Chrome over CDP, or an
+  embedded `<webview>` with the optional desktop shell) and adds `open_preview`
+  / `read_preview` / `close_preview` for web pages and local files.
 
 Because each add-on installs through the harness's normal extension points (a
 per-profile plugin, a user agent-preset, or an OpenAI-compatible endpoint in
